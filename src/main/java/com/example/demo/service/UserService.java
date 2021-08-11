@@ -13,5 +13,7 @@ public class UserService {
     @Autowired
     public UserService (UserRepository userRepository) { this.userRepository = userRepository; }
 
-    public User saveUser(String firstName, String lastname, String email) { return this.userRepository.save(new User(firstName, lastname, email)); }
+    public User saveUser(String firstName, String lastname, String email) {
+        return this.userRepository.save(new User(firstName, lastname, email));
+    }
 }
