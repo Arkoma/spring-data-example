@@ -25,8 +25,8 @@ public class User {
     @Column(name="EMAIL", length = 50, nullable = true, unique = false)
     private String email;
 
-    @Column(name="ORGANIZATION")
-    private Organization organization;
+//    @Column(name="ORGANIZATION")
+//    private com.example.demo.model.Organization organization;
 
     public Long getId() {
         return id;
@@ -60,11 +60,11 @@ public class User {
         this.email = email;
     }
 
-    public Organization getOrganization() {
-        return organization;
-    }
-
-    public void setOrganization(Organization organization) {
-        this.organization = organization;
-    }
+//    public Organization getOrganization() {
+//        return organization;
+//    }
+//
+//    public void setOrganization(Organization organization) {
+//        this.organization = organization;
+//    }
 }
