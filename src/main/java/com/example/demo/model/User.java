@@ -6,12 +6,6 @@ import javax.persistence.*;
 @Table(name="USER")
 public class User {
 
-    public User(String firstName, String lastname, String email) {
-        this.firstName = firstName;
-        this.lastName = lastname;
-        this.email = email;
-    }
-
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
@@ -25,8 +19,13 @@ public class User {
     @Column(name="EMAIL", length = 50, nullable = true, unique = false)
     private String email;
 
-//    @Column(name="ORGANIZATION")
-//    private com.example.demo.model.Organization organization;
+    public User(String firstName, String lastname, String email) {
+        this.firstName = firstName;
+        this.lastName = lastname;
+        this.email = email;
+    }
+
+    public User() {}
 
     public Long getId() {
         return id;
@@ -60,11 +59,4 @@ public class User {
         this.email = email;
     }
 
-//    public Organization getOrganization() {
-//        return organization;
-//    }
-//
-//    public void setOrganization(Organization organization) {
-//        this.organization = organization;
-//    }
 }
