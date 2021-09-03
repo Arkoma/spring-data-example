@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataset>
+    <user
+           ID="10"
+           FIRST_NAME="George"
+           LAST_NAME="Washington"
+           EMAIL="firstpres@example.com"
+    />
+</dataset>
