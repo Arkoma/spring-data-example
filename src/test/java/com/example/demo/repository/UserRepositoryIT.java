@@ -30,7 +30,7 @@ class UserRepositoryIT {
     private UserRepository underTest;
 
     @Test
-    public void userRepositoryIsABean() {
+    void userRepositoryIsABeanOnAppCtx() {
         assertTrue(applicationContext.containsBean("userRepository"));
     }
 

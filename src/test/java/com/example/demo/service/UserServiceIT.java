@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.util.ReflectionTestUtils;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
@@ -16,15 +16,20 @@ public class UserServiceIT {
     @Autowired
     private ApplicationContext applicationContext;
 
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private UserRepository userRepository;
+
     @Test
-    public void userServiceIsInjectedIntoApplicationContextAsABean() {
+    void userServiceIsABeanOnAppCtx() {
         assertTrue(applicationContext.containsBean("userService"));
     }
 
     @Test
-    public void userServiceInjectsUserRepository() {
-        UserService userService = (UserService) applicationContext.getBean("userService");
-        UserRepository userRepository = (UserRepository) ReflectionTestUtils.getField(userService, "userRepository");
-        assertNotNull(userRepository);
+    void userServiceInjectsUserRepository() {
+        UserRepository injectedUserRepository = (UserRepository) ReflectionTestUtils.getField(userService, "userRepository");
+        assertSame(userRepository, injectedUserRepository);
     }
 }
